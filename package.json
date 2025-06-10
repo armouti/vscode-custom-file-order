@@ -1,0 +1,109 @@
+{
+  "name": "custom-file-order",
+  "displayName": "Custom File Order",
+  "description": "Manually order files and directories in the file explorer with drag-and-drop like functionality",
+  "version": "0.1.0",
+  "publisher": "YOUR_PUBLISHER_NAME",
+  "author": "Your Name",
+  "license": "MIT",
+  "homepage": "https://github.com/armouti/vscode-custom-file-order",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/armouti/vscode-custom-file-order.git"
+  },
+  "bugs": {
+    "url": "https://github.com/armouti/vscode-custom-file-order/issues"
+  },
+  "keywords": [
+    "file",
+    "order",
+    "custom",
+    "explorer",
+    "organize",
+    "sort",
+    "reorder",
+    "directory",
+    "file-management",
+    "productivity"
+  ],
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#0078d4",
+    "theme": "dark"
+  },
+  "contributes": {
+    "views": {
+      "explorer": [
+        {
+          "id": "customFileExplorer",
+          "name": "Custom Ordered Files",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "customFileExplorer.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "customFileExplorer.moveUp",
+        "title": "Move Up",
+        "icon": "$(arrow-up)"
+      },
+      {
+        "command": "customFileExplorer.moveDown",
+        "title": "Move Down", 
+        "icon": "$(arrow-down)"
+      },
+      {
+        "command": "customFileExplorer.resetOrder",
+        "title": "Reset to Alphabetical"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "customFileExplorer.refresh",
+          "when": "view == customFileExplorer",
+          "group": "navigation"
+        },
+        {
+          "command": "customFileExplorer.resetOrder",
+          "when": "view == customFileExplorer"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "customFileExplorer.moveUp",
+          "when": "view == customFileExplorer",
+          "group": "inline"
+        },
+        {
+          "command": "customFileExplorer.moveDown",
+          "when": "view == customFileExplorer",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+} 
