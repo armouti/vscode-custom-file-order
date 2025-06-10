@@ -2,7 +2,7 @@
   "name": "custom-file-order",
   "displayName": "Custom File Order",
   "description": "Manually order files and directories in the file explorer with drag-and-drop like functionality",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "armouti",
   "author": "Armouti",
   "license": "MIT",
@@ -34,7 +34,6 @@
     "onStartupFinished"
   ],
   "main": "./out/extension.js",
-  "icon": "icon.png",
   "galleryBanner": {
     "color": "#0078d4",
     "theme": "dark"

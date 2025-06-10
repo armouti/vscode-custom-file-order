@@ -107,7 +107,17 @@ class CustomFileOrderProvider implements vscode.TreeDataProvider<FileItem> {
         const folderPath = path.dirname(item.uri.fsPath);
         const relativePath = path.relative(this.workspaceRoot, folderPath);
         
-        const children = await this.getChildren();
+        // Create the parent folder FileItem to get the correct children
+        let parentElement: FileItem | undefined;
+        if (folderPath !== this.workspaceRoot) {
+            parentElement = {
+                uri: vscode.Uri.file(folderPath),
+                type: vscode.FileType.Directory,
+                label: path.basename(folderPath)
+            };
+        }
+        
+        const children = await this.getChildren(parentElement);
         const currentOrder = children.map(child => child.label);
         const index = currentOrder.indexOf(item.label);
         
@@ -124,7 +134,17 @@ class CustomFileOrderProvider implements vscode.TreeDataProvider<FileItem> {
         const folderPath = path.dirname(item.uri.fsPath);
         const relativePath = path.relative(this.workspaceRoot, folderPath);
         
-        const children = await this.getChildren();
+        // Create the parent folder FileItem to get the correct children
+        let parentElement: FileItem | undefined;
+        if (folderPath !== this.workspaceRoot) {
+            parentElement = {
+                uri: vscode.Uri.file(folderPath),
+                type: vscode.FileType.Directory,
+                label: path.basename(folderPath)
+            };
+        }
+        
+        const children = await this.getChildren(parentElement);
         const currentOrder = children.map(child => child.label);
         const index = currentOrder.indexOf(item.label);
         
