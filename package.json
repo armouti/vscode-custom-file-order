@@ -3,8 +3,8 @@
   "displayName": "Custom File Order",
   "description": "Manually order files and directories in the file explorer with drag-and-drop like functionality",
   "version": "0.1.0",
-  "publisher": "YOUR_PUBLISHER_NAME",
-  "author": "Your Name",
+  "publisher": "armouti",
+  "author": "Armouti",
   "license": "MIT",
   "homepage": "https://github.com/armouti/vscode-custom-file-order",
   "repository": {
